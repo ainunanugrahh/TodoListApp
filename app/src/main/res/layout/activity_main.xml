@@ -19,23 +19,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Hello"
-       android:layout_marginTop="20dp"
-       android:textColor="@color/colorAccent"
-       android:textSize="18sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Hello, Ainun"
+                android:textColor="@color/colorTosca"
+                android:textSize="18sp" />
 
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="All tasks"
-       fontPath="fonts/nunito_extra_bold.ttf"
-       android:textStyle="bold"
-       android:textColor="@color/colorAccent"
-       android:textSize="28sp"
-       tools:ignore="MissingPrefix" />
+            <TextView
+                fontPath="fonts/nunito_extra_bold.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Task"
+                android:textColor="@color/colorTosca"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                tools:ignore="MissingPrefix" />
 
         </LinearLayout>
 
@@ -43,7 +43,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="right|center"
-            android:background="@drawable/calendar"
+            android:background="@drawable/calenderr"
             android:id="@+id/calendar"/>
 
     </FrameLayout>
@@ -80,7 +80,7 @@
        android:paddingTop="10dp"
        android:id="@+id/addTask"
        android:layout_gravity="center"
-       android:textColor="@color/colorAccent"
+       android:textColor="@color/colorTosca"
        android:textSize="20sp"
        android:drawableLeft="@drawable/ic_add_black_24dp"
        android:textAlignment="center"

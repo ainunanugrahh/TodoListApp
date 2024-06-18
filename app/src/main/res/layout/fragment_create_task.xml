@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:text="Add a task"
+            android:text="Add TodoList"
             android:textColor="@android:color/black"
             android:textSize="22sp"
             tools:ignore="MissingPrefix" />
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:text="Fill the details below to add a task into your TODO"
+            android:text="Fill the details below"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:alpha="0.8"
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Task title"
+            android:text="Title"
             tools:ignore="MissingPrefix" />
 
         <EditText
@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Task description"
+        android:text="Description"
         tools:ignore="MissingPrefix" />
 
     <EditText
@@ -93,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Task date"
+        android:text="Date"
         tools:ignore="MissingPrefix" />
 
     <EditText
@@ -114,7 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Task time"
+        android:text="Time"
         tools:ignore="MissingPrefix" />
 
     <EditText
@@ -128,28 +128,6 @@
         android:padding="10dp"
         android:id="@+id/taskTime"
         tools:ignore="MissingPrefix" />
-
-    <TextView
-        android:layout_marginLeft="3dp"
-        fontPath="fonts/nunito_light.ttf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Add an event"
-        tools:ignore="MissingPrefix" />
-
-    <EditText
-        android:textSize="14sp"
-        fontPath="fonts/nunito_light.ttf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:singleLine="true"
-        android:background="@drawable/btn_border"
-        android:padding="10dp"
-        android:id="@+id/taskEvent"
-        tools:ignore="MissingPrefix" />
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.codegama.todolistapplication;
+package com.d121201073.todolistapplication;
 
 import android.app.Application;
 import android.content.ComponentCallbacks2;

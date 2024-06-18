@@ -1,4 +1,4 @@
-package com.codegama.todolistapplication.activity;
+package com.d121201073.todolistapplication.activity;
 
 import android.content.ComponentName;
 import android.content.pm.PackageManager;
@@ -7,20 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.codegama.todolistapplication.R;
-import com.codegama.todolistapplication.adapter.TaskAdapter;
-import com.codegama.todolistapplication.bottomSheetFragment.CreateTaskBottomSheetFragment;
-import com.codegama.todolistapplication.bottomSheetFragment.ShowCalendarViewBottomSheet;
-import com.codegama.todolistapplication.broadcastReceiver.AlarmBroadcastReceiver;
-import com.codegama.todolistapplication.database.DatabaseClient;
-import com.codegama.todolistapplication.model.Task;
+import com.d121201073.todolistapplication.R;
+import com.d121201073.todolistapplication.adapter.TaskAdapter;
+import com.d121201073.todolistapplication.bottomSheetFragment.CreateTaskBottomSheetFragment;
+import com.d121201073.todolistapplication.bottomSheetFragment.ShowCalendarViewBottomSheet;
+import com.d121201073.todolistapplication.broadcastReceiver.AlarmBroadcastReceiver;
+import com.d121201073.todolistapplication.database.DatabaseClient;
+import com.d121201073.todolistapplication.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;

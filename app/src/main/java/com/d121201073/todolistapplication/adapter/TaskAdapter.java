@@ -1,4 +1,4 @@
-package com.codegama.todolistapplication.adapter;
+package com.d121201073.todolistapplication.adapter;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -12,17 +12,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.codegama.todolistapplication.R;
-import com.codegama.todolistapplication.activity.MainActivity;
-import com.codegama.todolistapplication.bottomSheetFragment.CreateTaskBottomSheetFragment;
-import com.codegama.todolistapplication.database.DatabaseClient;
-import com.codegama.todolistapplication.model.Task;
+import com.d121201073.todolistapplication.R;
+import com.d121201073.todolistapplication.activity.MainActivity;
+import com.d121201073.todolistapplication.bottomSheetFragment.CreateTaskBottomSheetFragment;
+import com.d121201073.todolistapplication.database.DatabaseClient;
+import com.d121201073.todolistapplication.model.Task;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

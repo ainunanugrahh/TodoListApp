@@ -1,4 +1,4 @@
-package com.codegama.todolistapplication.bottomSheetFragment;
+package com.d121201073.todolistapplication.bottomSheetFragment;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -12,17 +12,15 @@ import androidx.annotation.RequiresApi;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
-import com.codegama.todolistapplication.R;
-import com.codegama.todolistapplication.activity.MainActivity;
-import com.codegama.todolistapplication.database.DatabaseClient;
-import com.codegama.todolistapplication.model.Task;
+import com.d121201073.todolistapplication.R;
+import com.d121201073.todolistapplication.activity.MainActivity;
+import com.d121201073.todolistapplication.database.DatabaseClient;
+import com.d121201073.todolistapplication.model.Task;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.google.android.material.drawable.DrawableUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import butterknife.BindView;
@@ -62,7 +60,7 @@ public class ShowCalendarViewBottomSheet extends BottomSheetDialogFragment {
         View contentView = View.inflate(getContext(), R.layout.fragment_calendar_view, null);
         unbinder = ButterKnife.bind(this, contentView);
         dialog.setContentView(contentView);
-        calendarView.setHeaderColor(R.color.colorAccent);
+        calendarView.setHeaderColor(R.color.colorTosca);
         getSavedTasks();
         back.setOnClickListener(view -> dialog.dismiss());
     }
@@ -109,7 +107,7 @@ public class ShowCalendarViewBottomSheet extends BottomSheetDialogFragment {
             calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(dd));
             calendar.set(Calendar.MONTH, Integer.parseInt(month) - 1);
             calendar.set(Calendar.YEAR, Integer.parseInt(year));
-            events.add(new EventDay(calendar, R.drawable.dot));
+            events.add(new EventDay(calendar, R.drawable.dott));
         }
         return events;
     }

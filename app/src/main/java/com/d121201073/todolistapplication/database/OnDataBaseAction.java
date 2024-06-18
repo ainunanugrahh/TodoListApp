@@ -1,10 +1,10 @@
-package com.codegama.todolistapplication.database;
+package com.d121201073.todolistapplication.database;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.codegama.todolistapplication.model.Task;
+import com.d121201073.todolistapplication.model.Task;
 
 import java.util.List;
 
@@ -27,8 +27,7 @@ public interface OnDataBaseAction {
     Task selectDataFromAnId(int taskId);
 
     @Query("UPDATE Task SET taskTitle = :taskTitle, taskDescription = :taskDescription, date = :taskDate, " +
-            "lastAlarm = :taskTime, event = :taskEvent WHERE taskId = :taskId")
-    void updateAnExistingRow(int taskId, String taskTitle, String taskDescription , String taskDate, String taskTime,
-                            String taskEvent);
+            "lastAlarm = :taskTime WHERE taskId = :taskId")
+    void updateAnExistingRow(int taskId, String taskTitle, String taskDescription , String taskDate, String taskTime);
 
 }

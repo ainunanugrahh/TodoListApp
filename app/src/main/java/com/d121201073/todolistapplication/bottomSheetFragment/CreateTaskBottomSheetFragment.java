@@ -1,48 +1,33 @@
-package com.codegama.todolistapplication.bottomSheetFragment;
+package com.d121201073.todolistapplication.bottomSheetFragment;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.os.SystemClock;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
 
-import com.codegama.todolistapplication.R;
-import com.codegama.todolistapplication.activity.AlarmActivity;
-import com.codegama.todolistapplication.activity.MainActivity;
-import com.codegama.todolistapplication.broadcastReceiver.AlarmBroadcastReceiver;
-import com.codegama.todolistapplication.database.DatabaseClient;
-import com.codegama.todolistapplication.model.Task;
+import com.d121201073.todolistapplication.R;
+import com.d121201073.todolistapplication.activity.MainActivity;
+import com.d121201073.todolistapplication.broadcastReceiver.AlarmBroadcastReceiver;
+import com.d121201073.todolistapplication.database.DatabaseClient;
+import com.d121201073.todolistapplication.model.Task;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.zubair.alarmmanager.builder.AlarmBuilder;
-import com.zubair.alarmmanager.enums.AlarmType;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,8 +46,6 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
     EditText taskDate;
     @BindView(R.id.taskTime)
     EditText taskTime;
-    @BindView(R.id.taskEvent)
-    EditText taskEvent;
     @BindView(R.id.addTask)
     Button addTask;
     int taskId;
@@ -115,6 +98,7 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
             showTaskFromId();
         }
 
+        // Menampilkan calender pada inputan date
         taskDate.setOnTouchListener((view, motionEvent) -> {
             if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 final Calendar c = Calendar.getInstance();
@@ -131,33 +115,15 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
             }
             return true;
         });
-
-        taskTime.setOnTouchListener((view, motionEvent) -> {
-            if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                // Get Current Time
-                final Calendar c = Calendar.getInstance();
-                mHour = c.get(Calendar.HOUR_OF_DAY);
-                mMinute = c.get(Calendar.MINUTE);
-
-                // Launch Time Picker Dialog
-                timePickerDialog = new TimePickerDialog(getActivity(),
-                        (view12, hourOfDay, minute) -> {
-                            taskTime.setText(hourOfDay + ":" + minute);
-                            timePickerDialog.dismiss();
-                        }, mHour, mMinute, false);
-                timePickerDialog.show();
-            }
-            return true;
-        });
     }
 
     public boolean validateFields() {
         if(addTaskTitle.getText().toString().equalsIgnoreCase("")) {
-            Toast.makeText(activity, "Please enter a valid title", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Please enter title", Toast.LENGTH_SHORT).show();
             return false;
         }
         else if(addTaskDescription.getText().toString().equalsIgnoreCase("")) {
-            Toast.makeText(activity, "Please enter a valid description", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Please enter description", Toast.LENGTH_SHORT).show();
             return false;
         }
         else if(taskDate.getText().toString().equalsIgnoreCase("")) {
@@ -166,10 +132,6 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
         }
         else if(taskTime.getText().toString().equalsIgnoreCase("")) {
             Toast.makeText(activity, "Please enter time", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        else if(taskEvent.getText().toString().equalsIgnoreCase("")) {
-            Toast.makeText(activity, "Please enter an event", Toast.LENGTH_SHORT).show();
             return false;
         }
         else {
@@ -192,7 +154,6 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
                 createTask.setTaskDescrption(addTaskDescription.getText().toString());
                 createTask.setDate(taskDate.getText().toString());
                 createTask.setLastAlarm(taskTime.getText().toString());
-                createTask.setEvent(taskEvent.getText().toString());
 
                 if (!isEdit)
                     DatabaseClient.getInstance(getActivity()).getAppDatabase()
@@ -204,9 +165,7 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
                             .updateAnExistingRow(taskId, addTaskTitle.getText().toString(),
                                     addTaskDescription.getText().toString(),
                                     taskDate.getText().toString(),
-                                    taskTime.getText().toString(),
-                                    taskEvent.getText().toString());
-
+                                    taskTime.getText().toString());
                 return null;
             }
 
@@ -217,7 +176,7 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
                     createAnAlarm();
                 }
                 setRefreshListener.refresh();
-                Toast.makeText(getActivity(), "Your event is been added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Your todolist has been added", Toast.LENGTH_SHORT).show();
                 dismiss();
 
             }
@@ -304,7 +263,6 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
         addTaskDescription.setText(task.getTaskDescrption());
         taskDate.setText(task.getDate());
         taskTime.setText(task.getLastAlarm());
-        taskEvent.setText(task.getEvent());
     }
 
     public interface setRefreshListener {
